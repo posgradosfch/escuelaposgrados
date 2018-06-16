@@ -10,6 +10,7 @@ import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import { OfertaComponent } from './oferta/oferta.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
     QuienesSomosComponent,
     OfertaComponent,
     NoticiasComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
