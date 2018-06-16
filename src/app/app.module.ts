@@ -11,6 +11,8 @@ import { OfertaComponent } from './oferta/oferta.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HeaderComponent } from './header/header.component';
+import { CarruselComponent } from './carrusel/carrusel.component';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -25,7 +27,9 @@ const routes: Routes = [
     OfertaComponent,
     NoticiasComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    HeaderComponent,
+    CarruselComponent
   ],
   imports: [
     BrowserModule,
