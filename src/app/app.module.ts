@@ -13,10 +13,16 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { CarruselComponent } from './carrusel/carrusel.component';
+import { PrivatePageComponent } from './private-page/private-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
-{path: 'noticias', component: NoticiasComponent}
+{path: 'noticias', component: NoticiasComponent},
+{path: 'quienes', component: QuienesSomosComponent},
+{path: 'oferta', component: OfertaComponent},
+{path: 'privado', component: PrivatePageComponent},
+{path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -29,7 +35,9 @@ const routes: Routes = [
     LoginComponent,
     NavbarComponent,
     HeaderComponent,
-    CarruselComponent
+    CarruselComponent,
+    PrivatePageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
