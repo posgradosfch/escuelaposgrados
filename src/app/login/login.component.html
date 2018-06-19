@@ -1,15 +1,23 @@
-<form #loginForm="ngForm" (ngSubmit) = "login(loginForm)">
-  <fieldset>
-    <legend>INICIO DE SESION</legend>
-    
-    <div class="form-group">
-      <label for="exampleInputEmail1">Usuario</label>
-      <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar Usuario" type="text">
+<div class="row">
+  <div class="col-md-6 mx-auto mt-5 mb-5">
+    <div class="card">
+      <div>
+        <h1 class="text-center"><strong>INICIO DE SESION</strong></h1>
+        <form #loginForm="ngForm" (ngSubmit) = "login(loginForm)">
+          <fieldset style="padding: 2rem;">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Usuario:</label>
+              <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar Usuario" type="text">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password:</label>
+              <input class="form-control" id="exampleInputPassword1" placeholder="Ingresar Contraseña" type="password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">INGRESAR</button>
+            <a href="">Registrarse</a>
+          </fieldset>
+        </form>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input class="form-control" id="exampleInputPassword1" placeholder="Ingresar Contraseña" type="password">
-    </div>
-    <button type="submit" class="btn btn-primary">Ingresar</button>
-  </fieldset>
-</form>
+  </div>
+</div>
