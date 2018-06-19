@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { CarruselComponent } from './carrusel/carrusel.component';
 import { PrivatePageComponent } from './private-page/private-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario.component';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -37,7 +38,8 @@ const routes: Routes = [
     HeaderComponent,
     CarruselComponent,
     PrivatePageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RegistrarUsuarioComponent
   ],
   imports: [
     BrowserModule,
