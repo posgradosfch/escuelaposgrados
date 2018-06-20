@@ -23,7 +23,9 @@ const routes: Routes = [
 {path: 'quienes', component: QuienesSomosComponent},
 {path: 'oferta', component: OfertaComponent},
 {path: 'privado', component: PrivatePageComponent},
+{path: 'registro', component: RegistrarUsuarioComponent},
 {path: '**', component: PageNotFoundComponent}
+
 ];
 
 @NgModule({
