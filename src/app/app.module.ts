@@ -3,24 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterModule, Routes} from '@angular/router';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 
-import { HomeComponent } from './home/home.component'; import {
-QuienesSomosComponent } from './quienes-somos/quienes-somos.component'; import
-{ OfertaComponent } from './oferta/oferta.component'; import {
-NoticiasComponent } from './noticias/noticias.component'; import {
-LoginComponent } from './login/login.component'; import { NavbarComponent }
-from './navbar/navbar.component'; import { HeaderComponent } from
-'./header/header.component'; import { CarruselComponent } from
-'./carrusel/carrusel.component'; import { PrivatePageComponent } from
-'./private-page/private-page.component'; import { PageNotFoundComponent } from
-'./page-not-found/page-not-found.component'; import {
-RegistrarUsuarioComponent } from './registrar-usuario/registrar-
-usuario.component'; import { NoticiasMantenimientoComponent } from
-'./mantenimientos/noticias-mantenimiento/noticias-mantenimiento.component';
-import { UsuariosMantenimientoComponent } from './mantenimientos/usuarios-
-mantenimiento/usuarios-mantenimiento.component'; import { HttpClientModule, HttpClient}
-from '@angular/common/http';
+import { HomeComponent } from './home/home.component'; 
+import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component'; 
+import { OfertaComponent } from './oferta/oferta.component'; 
+import { NoticiasComponent } from './noticias/noticias.component'; 
+import { LoginComponent } from './login/login.component'; 
+import { NavbarComponent } from './navbar/navbar.component'; 
+import { HeaderComponent } from './header/header.component'; 
+import { CarruselComponent } from './carrusel/carrusel.component'; 
+import { PrivatePageComponent } from './private-page/private-page.component'; 
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'; 
+import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario.component';
+
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -29,7 +26,6 @@ const routes: Routes = [
 {path: 'oferta', component: OfertaComponent},
 {path: 'privado', component: PrivatePageComponent},
 {path: 'registro', component: RegistrarUsuarioComponent},
-{path: 'noticiasMantenimiento', component: NoticiasMantenimientoComponent},
 {path: '**', component: PageNotFoundComponent}
 
 ];
@@ -47,10 +43,7 @@ const routes: Routes = [
     CarruselComponent,
     PrivatePageComponent,
     PageNotFoundComponent,
-    RegistrarUsuarioComponent,
-    NoticiasMantenimientoComponent,
-    UsuariosMantenimientoComponent,
-    PlantillaAdminComponent
+    RegistrarUsuarioComponent
   ],
   imports: [
     BrowserModule,

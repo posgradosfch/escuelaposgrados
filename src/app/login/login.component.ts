@@ -1,26 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router} from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from '../servicios/login.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor( private router: Router, private loginService: LoginService ) { }
+
+  login;
 
   ngOnInit() {
+    this.login = {
+      usuario: '',
+      contra: '',
+      errorMsj: ''
+    };
   }
 
-  login(form: NgForm){
-  	console.log(form.value);
-    if(form.value.usuario === 'admin' && form.value.contra === '123456'){
-    localStorage.setItem( key: 'usuario', form.value.usuario);
-    this.router.navigate( command: ['/noticias']);
-    }
-  	
-  },
+  onlogin(){
+    this.loginService.loginUsuario(this.login).subscribe(
+      response => {
+        console. log(response);
+        alert(this.login.usuario + 'Bienvenido');
+        this.router.navigate(['/noticias']);
+      },
+      error => {
+        console. log('Usuario o password incorrecto', error);
+        this.router.navigate(['/home']);
+      } 
+    );
+
+  }
 
 }
