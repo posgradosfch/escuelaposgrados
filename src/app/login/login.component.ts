@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     };
   }
 
-  onlogin(){
+  onlogin() {
     this.loginService.loginUsuario(this.login).subscribe(
       response => {
         console. log(response);
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       error => {
         console. log('Usuario o password incorrecto', error);
         this.router.navigate(['/home']);
-      } 
+      }
     );
 
   }

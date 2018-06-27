@@ -6,16 +6,16 @@ import { RouterModule, Routes} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 
-import { HomeComponent } from './home/home.component'; 
-import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component'; 
-import { OfertaComponent } from './oferta/oferta.component'; 
-import { NoticiasComponent } from './noticias/noticias.component'; 
-import { LoginComponent } from './login/login.component'; 
-import { NavbarComponent } from './navbar/navbar.component'; 
-import { HeaderComponent } from './header/header.component'; 
-import { CarruselComponent } from './carrusel/carrusel.component'; 
-import { PrivatePageComponent } from './private-page/private-page.component'; 
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component'; 
+import { HomeComponent } from './home/home.component';
+import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+import { OfertaComponent } from './oferta/oferta.component';
+import { NoticiasComponent } from './noticias/noticias.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HeaderComponent } from './header/header.component';
+import { CarruselComponent } from './carrusel/carrusel.component';
+import { PrivatePageComponent } from './private-page/private-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario.component';
 
 
