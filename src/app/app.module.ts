@@ -18,6 +18,7 @@ import { PrivatePageComponent } from './private-page/private-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -49,7 +50,8 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

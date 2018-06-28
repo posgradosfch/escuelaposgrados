@@ -14,9 +14,16 @@
 
         <div class="form-group">
             <label for="password"> contraseña</label>
-            <input [(ngModel)]="register.password" type="password" name="password" id="password" class="form-control" aria-describedby="passwordHelp" placeholder="Ingrese su contraseña" required minlength="3">
+            <input [(ngModel)]="register.password" type="password" name="password" id="password" class="form-control" aria-describedby="passwordHelp" placeholder="Ingrese su contraseña" required minlength="13">
             <small id="passwordHelp" class="form-text text-muted">puede combinar caracteres, números y signos</small>
         </div>
+<!--
+        <div class="form-group">
+          <label for="password"> contraseña</label>
+          <input [(ngModel)]="register.password" type="password" name="password" id="password" class="form-control" aria-describedby="passwordHelp" placeholder="Ingrese su contraseña" required minlength="13">
+          <small id="passwordHelp" class="form-text text-muted">puede combinar caracteres, números y signos</small>
+         </div>
+-->         
 
        <div class="form-group">
           <label for="usuario"> Ingrese sus Nombres</label>
@@ -36,6 +43,26 @@
             <small id="passwordHelp" class="form-text text-muted">ejemplo: ejemplo@gmail.com</small>
         </div>
 
+        <div class="form-group">
+          <label for="DUI">DUI </label>
+          <input [(ngModel)]="register.dui" type="text" name="dui" id="dui" class="form-control" aria-describedby="duiHelp" placeholder="Ingrese su DUI" required>
+          <small id="passwordHelp" class="form-text text-muted">Ingrese su número de DUI utilizando - y números</small>
+      </div>
+
+      <div class="form-group">
+        <label for="fecha"> Fecha de nacimiento</label>
+        <input [(ngModel)]="register.fechaNacimiento" type="date" name="fecha" id="fechaNacimiento" class="form-control" aria-describedby="fechaHelp" placeholder="Ingrese su fecha de nacimiento" required>
+        <small id="passwordHelp" class="form-text text-muted">ejemplo: 25/02/1990</small>
+    </div>
+
+      <div class="form-group">
+        <label for="fecha"> Teléfono fijo</label>
+        <input  [(ngModel)]="register.telefonoFijo"  class="form-control" aria-describedby="emailHelp" type="tel" id="phone" name="phone" placeholder="2232-1112" pattern="[0-9]{3}-[0-9]{3}" required >
+        <small id="passwordHelp" class="form-text text-muted"></small>
+    </div>
+
+
+       
          
         <!--
         <div class="form-group">
