@@ -5,12 +5,12 @@
          <h1 class="text-center"> FORMULARIO DE REGISTRO</h1>
       
        <form>  
-         <!--
+         
        <div class="form-group">
           <label for="usuario"> Nombre de usuario</label>
           <input [(ngModel)]="register.username"  type="email" name="text" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese su nombre de usuario" required>
           <small id="emailHelp" class="form-text text-muted"></small>
-       </div>  -->
+       </div>  
 
         <div class="form-group">
             <label for="password"> contraseña</label>
@@ -60,8 +60,31 @@
         <input  [(ngModel)]="register.telefonoFijo"  class="form-control" aria-describedby="emailHelp" type="tel" id="phone" name="phone" placeholder="2232-1112" pattern="[0-9]{3}-[0-9]{3}" required >
         <small id="passwordHelp" class="form-text text-muted"></small>
     </div>
+ 
+    <div class="form-group">
+      <label for="fecha"> Teléfono Móvil</label>
+      <input  [(ngModel)]="register.telefonoMovil"  class="form-control" aria-describedby="emailHelp" type="tel" id="phone" name="phone" placeholder="7896-6789" pattern="[0-9]{3}-[0-9]{3}" required >
+      <small id="passwordHelp" class="form-text text-muted"></small>
+    </div>
+  
+    <div class="form-group">
+      <label for="usuario"> Ingrese su título de pregrado</label>
+      <input [(ngModel)]="register.tituloPregrado"  type="text" name="nombres" id="tituloPregrado" class="form-control" aria-describedby="tituloPregradoHelp" placeholder="ejemplo: Licenciatura en Psicología" required>
+      <small id="tituloPregradoHelp" class="form-text text-muted"></small>
+    </div>
 
-
+    <div class="form-group">
+      <label for="usuario"> Ingrese la institución que otorgo el título de pregrado</label>
+      <input [(ngModel)]="register.institucionOtorgante"  type="text" name="institucionOtorgante" id="institucionOtorgante" class="form-control" aria-describedby="institucionOtorganteHelp" placeholder="" required>
+      <small id="institucionOtorganteHelp" class="form-text text-muted"></small>
+    </div>
+    
+    <div class="form-group">
+      <label for="fecha"> Fecha de expedición</label>
+      <input [(ngModel)]="register.fechaExpedicion" type="date" name="fechaExpedicion" id="fechaExpedicion" class="form-control" aria-describedby="fechaExpedicionHelp" placeholder="21/06/2009" required>
+      <small id="fechaExpedicionHelp" class="form-text text-muted">ejemplo: 25/02/1990</small>
+  </div>
+    
        
          
         <!--

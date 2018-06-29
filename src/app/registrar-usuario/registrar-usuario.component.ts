@@ -15,11 +15,19 @@ export class RegistrarUsuarioComponent implements OnInit {
   register;
   ngOnInit() {
     this.register = {
-     //  username: '',
+       username: '',
        password: '',
        nombres: '',
        apellidos: '',
-       email: ''
+       email: '',
+       dui: '',
+       genero: '',
+       fechaNacimiento: '',
+       telefonoFijo: '',
+       telefonoMovil: '',
+       tituloPregrado: '',
+       institucionOtorgante: '',
+       fechaExpedicion: ''
     };
   }
  registrarUsuario() {
