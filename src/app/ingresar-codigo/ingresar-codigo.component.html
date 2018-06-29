@@ -1,0 +1,30 @@
+
+  <div *ngIf="isCodeCorrect; else seguir">
+ <!--   <a class="nav-link" href="/registrar-usuario">Regístrate</a> -->
+  </div>
+
+<ng-template #seguir>
+
+  <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h2 type= "text-center">Ingrese el código de aspirante:</h2>
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label></label>
+        <input type="text" formControlName="codigo" class="form-control"   [ngClass]="{ 'is-invalid': submitted && f.codigo.errors }" />
+        <div *ngIf="submitted && f.codigo.errors" class="invalid-feedback">
+            <div *ngIf="f.codigo.errors.required">First Name is required</div>
+            <div *ngIf="f.codigo.errors.pattern">code must be valid</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="registerForm.invalid" class="btn btn-primary btn-lg btn-block" (click)="validarCodigo()" >Ingresar</button>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</ng-template>  

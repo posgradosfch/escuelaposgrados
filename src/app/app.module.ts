@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { IngresarCodigoComponent } from './ingresar-codigo/ingresar-codigo.component';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
 {path: 'oferta', component: OfertaComponent},
 {path: 'privado', component: PrivatePageComponent},
 {path: 'registro', component: RegistrarUsuarioComponent},
-{path: '**', component: PageNotFoundComponent}
+{path: '**', component: PageNotFoundComponent},
+{path: 'ingresar-codigo', component: IngresarCodigoComponent}
 
 ];
 
@@ -44,7 +46,8 @@ const routes: Routes = [
     CarruselComponent,
     PrivatePageComponent,
     PageNotFoundComponent,
-    RegistrarUsuarioComponent
+    RegistrarUsuarioComponent,
+    IngresarCodigoComponent
   ],
   imports: [
     BrowserModule,
