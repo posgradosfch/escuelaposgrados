@@ -28,8 +28,8 @@ const routes: Routes = [
 {path: 'oferta', component: OfertaComponent},
 {path: 'privado', component: PrivatePageComponent},
 {path: 'registro', component: RegistrarUsuarioComponent},
-{path: '**', component: PageNotFoundComponent},
-{path: 'ingresar-codigo', component: IngresarCodigoComponent}
+{path: 'ingresarCodigo', component: IngresarCodigoComponent},
+{path: '**', component: PageNotFoundComponent}
 
 ];
 
