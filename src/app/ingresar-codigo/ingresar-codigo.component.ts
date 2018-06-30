@@ -29,20 +29,20 @@ ngOnInit() {
   });
   }
 
- // convenience getter for easy access to form fields
+ // para facilitar el acceso al resgisterForm
   get f() { return this.registerForm.controls; }
   onSubmit() {
      this.submitted = true;
      const formValue = this.registerForm.value;
      console.log(formValue);
 
-     // stop here if form is invalid
+     // para aca si el codigo es invalido
     if (this.registerForm.invalid) {
        return;
       }
 
      alert('código ingresado correctamente');
- //    this.isCodeCorrect = true;
+ this.isCodeCorrect = true;
  this.router.navigate(['/registro']);
     }
 

@@ -10,9 +10,9 @@
             <div class="row mt-5 mb-5">
                 <div class="col-md-6 offset-md-3">
                     <h2 type= "text-center">Ingrese el código de aspirante:</h2>
-                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" #registerForm="ngForm">
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
                         <div class="form-group">
-                            <input type="text" formControlName="codigo" class="form-control"   [ngClass]="{ 'is-invalid': submitted && f.codigo.errors }" #codigo/>
+                            <input type="text" formControlName="codigo" class="form-control"   [ngClass]="{ 'is-invalid': submitted && f.codigo.errors }" />
                             <div *ngIf="submitted && f.codigo.errors" class="invalid-feedback">
                                 <div *ngIf="f.codigo.errors.required">First Name is required</div>
                                 <div *ngIf="f.codigo.errors.pattern">code must be valid</div>
