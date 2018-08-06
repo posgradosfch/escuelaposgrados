@@ -46,4 +46,7 @@ ngOnInit() {
  this.router.navigate(['/registro']);
     }
 
+    validarCodigo () {
+    }
+
 }
