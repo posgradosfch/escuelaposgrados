@@ -20,21 +20,22 @@ export class RegistrarUsuarioComponent implements OnInit {
   register;
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      nombre_aspirante: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      apellido_aspirante: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      nombre_aspirante: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
+      apellido_aspirante: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
       contrasena_aspirante: ['', [Validators.required, Validators.minLength(7)]],
-      dui: ['', [Validators.required, Validators.pattern('[0-9]{8}-[(0-9)]')]],
+      dui: ['', [Validators.required, Validators.pattern('[0-9]{9}')]],
+      // [0-9]{8}-[(0-9)]
       genero: ['', Validators.required],
       fechas_nac: ['', Validators.required],
       t_fijo: ['', [Validators.required,  Validators.pattern('[0-9]{8}')]],
       t_movil: ['', [Validators.required,  Validators.pattern('[0-9]{8}')]],
       email: ['', [Validators.required, Validators.email]],
-      titulo_pre: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      institucion: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      titulo_pre: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
+      institucion: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
       f_expedicion: ['', Validators.required],
-      municipio: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      lugar_trab: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      programa: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      municipio: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
+      lugar_trab: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
+      programa: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
       id_user: '',
       id_val: ''
   });

@@ -1,7 +1,18 @@
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> 
+ <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+
 <div class="row">
   <div class="col-md-6 mx-auto mt-5">
     <div class="card">
       <div class="card-body">
+
+
+<!--
+<div class="container-fluid">
+    <section class="container">
+		<div class="container-page">				
+			<div class="col-md-6">-->
          <h1 class="text-center"> FORMULARIO DE REGISTRO</h1>
       
        <form [formGroup]="registerForm" (ngSubmit)="registrarUsuario()">  
@@ -29,87 +40,99 @@
         <input [(ngModel)]="register.group_id" type="number" name="email" id="id" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese su correo electronico" >
         <small id="passwordHelp" class="form-text text-muted">ejemplo: ejemplo@gmail.com</small>
     </div>
+    
   -->
 
-       <div class="form-group">
-          <div  class="col-md required">
-          <label for="usuario" class="control-label required">Ingrese sus Nombres</label> </div>
+       <div class="form-group  col-lg-12">
+          <div  class="required">
+          <label for="usuario" class="control-label required">Nombres</label> </div>
           <input type="text" formControlName="nombre_aspirante" class="form-control" placeholder="Ingrese sus nombres" [ngClass]="{ 'is-invalid': submitted && f.nombre_aspirante.errors }" required/>
         <!--  <input type="text" formControlName="nombre_aspirante" id="nombres" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese sus nombres" [ngClass]="{ 'is-invalid': submitted && f.nombre_aspirante.errors }" > -->
           <small id="nombreHelp" class="form-text text-muted"></small>
           <div *ngIf="submitted && f.nombre_aspirante.errors" class="invalid-feedback">
             <div *ngIf="f.nombre_aspirante.errors.required">nombre es un dato requerido</div>
-            <div *ngIf="f.nombre_aspirante.errors.pattern">The name must contain only letters</div>
+            <div *ngIf="f.nombre_aspirante.errors.pattern"> el nombre debe contener solo letras</div>
           </div>
           <div *ngIf="f.nombre_aspirante.invalid && f.nombre_aspirante.touched" class="invalid-feedback">
             nombre incorrecto
           </div>
-          <div *ngIf="submitted && f.nombre_aspirante.valid" class="valid-feedback">Success! You've done it.</div>
-          <div [hidden]="f.nombre_aspirante.valid || f.nombre_aspirante.pristine" class="alert alert-danger">Name required</div>
+          <div *ngIf="f.nombre_aspirante.valid " class="valid-feedback">Success! You've done it.</div>
+          <div [hidden]="f.nombre_aspirante.valid || f.nombre_aspirante.pristine" class="alert alert-danger">Su nombre es un dato requerido</div>
         </div>
 
-        <div class="form-group">
-          <label for="usuario" class="control-label required"> Ingrese sus apellidos </label>
+        <div class="form-group col-lg-6">
+          <label for="usuario" class="control-label required">Apellidos </label>
           <input type="text" formControlName="apellido_aspirante" id="apellidos" class="form-control" aria-describedby="apellidosHelp" placeholder="Ingrese sus apellidos"  [ngClass]="{ 'is-invalid': submitted && f.apellido_aspirante.errors }" >
           <small id="apellidosHelp" class="form-text text-muted">ejemplo: Pérez García</small>
           <div *ngIf="submitted && f.apellido_aspirante.errors" class="invalid-feedback">
-            <div *ngIf="f.apellido_aspirante.errors.required">Last Name is required</div>
+            <div *ngIf="f.apellido_aspirante.errors.required">los apellidos son datos requeridos</div>
+            <div *ngIf="f.apellido_aspirante.errors.pattern"> los apellidos deben contener solo letras</div>
           </div>
         </div>   
+<!--prueba
+        <div class="form-group col-lg-6">
+            <label>Password</label>
+            <input type="password" name="" class="form-control" id="" value="">
+          </div>
+          
+          <div class="form-group col-lg-6">
+            <label>Repeat Password</label>
+            <input type="password" name="" class="form-control" id="" value="">
+          </div>-->
 
-        <div class="form-group">
+        <div class="form-group col-lg-6">
             <label for="password">contraseña</label>
-            <input type="password" formControlName="contrasena_aspirante" id="password" class="form-control" aria-describedby="passwordHelp" placeholder="Ingrese su contraseña" minlength="7" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contrasena_aspirante.errors }" >
+            <input type="password" formControlName="contrasena_aspirante" id="password" class="form-control" aria-describedby="passwordHelp" placeholder="minimo 7 caracteres de longitud" minlength="7" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contrasena_aspirante.errors }" >
             <small id="passwordHelp" class="form-text text-muted">puede combinar caracteres, números y signos</small>
             <div *ngIf="submitted && f.contrasena_aspirante.errors" class="invalid-feedback">
-              <div *ngIf="f.contrasena_aspirante.errors.required">Password is required</div>
-              <div *ngIf="f.contrasena_aspirante.errors.minlength">Password must be at least 7 characters</div>
+              <div *ngIf="f.contrasena_aspirante.errors.required">la contraseña es un dato requerido</div>
+              <div *ngIf="f.contrasena_aspirante.errors.minlength">la contraseña debe contener al menos 7 caracteres</div>
           </div>
         </div>
        
-        <div class="form-group">
+        <div class="form-group col-lg-6">
           <label for="DUI">DUI </label>
-          <input type="text" formControlName="dui" id="dui" class="form-control" aria-describedby="duiHelp" placeholder="Ingrese su DUI" [ngClass]="{ 'is-invalid': submitted && f.dui.errors }">
-          <small id="passwordHelp" class="form-text text-muted">Ingrese su número de DUI utilizando - y números</small>
+          <input type="text" formControlName="dui" id="dui" class="form-control" aria-describedby="duiHelp" placeholder="Ingrese su DUI utilizando unicamente números" [ngClass]="{ 'is-invalid': submitted && f.dui.errors }">
+          <small id="passwordHelp" class="form-text text-muted">ejemplo: 052345098</small>
           <div *ngIf="submitted && f.dui.errors" class="invalid-feedback">
-            <div *ngIf="f.dui.errors.required">DUI is required</div>
-          <div *ngIf="f.dui.errors.pattern">DUI must be a valid number</div>
+            <div *ngIf="f.dui.errors.required">DUI es un dato requerido</div>
+          <div *ngIf="f.dui.errors.pattern">DUI debe contener 9 digitos</div>
         </div>
         </div>
 
-      <div class="form-group">
-        <label for="genero">Genero </label>
+ <!--   <div class="form-group">
+        <label for="genero">Género </label>
         <input type="text" formControlName="genero" id="genero" class="form-control" aria-describedby="generoHelp" placeholder="Ingrese su género" [ngClass]="{ 'is-invalid': submitted && f.genero.errors }">
         <small id="passwordHelp" class="form-text text-muted">ejemplo: Femenino</small>
         <div *ngIf="submitted && f.genero.errors" class="invalid-feedback">
-          <div *ngIf="f.genero.errors.required">genero is required</div>
+          <div *ngIf="f.genero.errors.required">genero es un dato requerido</div>
       </div>
       </div>
- <!--
-        <div class="form-group">
-          <label for="exampleSelect1">Genero</label>
-          <select class="form-control" id="exampleSelect1" type="text" formControlName="genero" aria-describedby="generoHelp" [ngClass]="{ 'is-invalid': submitted && f.genero.errors }">
+-->
+        <div class="form-group col-lg-6">
+          <label for="exampleSelect1">Género</label>
+          <select class="form-control" id="exampleSelect1" type="text" formControlName="genero" aria-describedby="generoHelp" placeholder="Seleccione su Género" [ngClass]="{ 'is-invalid': submitted && f.genero.errors }">
             <option>Femenino</option>
             <option>Masculino</option>
           </select>
-          <small id="passwordHelp" class="form-text text-muted">ejemplo: Femenino</small>
+      <!--    <small id="passwordHelp" class="form-text text-muted">ejemplo: Femenino</small> -->
           <div *ngIf="submitted && f.genero.errors" class="invalid-feedback">
-            <div *ngIf="f.genero.errors.required">genero is required</div>
+            <div *ngIf="f.genero.errors.required">el género es un dato requerido</div>
           </div>
-        </div>-->
-
+        </div>
+        
       <div class="form-group">
         <label for="fecha"> Fecha de nacimiento</label>
         <input type="date" formControlName="fechas_nac" id="fechaNacimiento" class="form-control" aria-describedby="fechaHelp" placeholder="Ingrese su fecha de nacimiento" [ngClass]="{ 'is-invalid': submitted && f.fechas_nac.errors }" >
         <small id="passwordHelp" class="form-text text-muted">ejemplo: 25/02/1990</small>
         <div *ngIf="submitted && f.fechas_nac.errors" class="invalid-feedback">
-          <div *ngIf="f.fechas_nac.errors.required">genero es un dato requerido</div>
+          <div *ngIf="f.fechas_nac.errors.required">la fecha de nacimiento es un dato requerido</div>
         </div>
     </div>
 
       <div class="form-group">
         <label for="fecha"> Teléfono fijo</label>
-        <input class="form-control" formControlName="t_fijo" aria-describedby="t_fijoHelp" type="tel" id="tel t_fijo" placeholder="Ingrese su numero de teléfono fijo" [ngClass]="{ 'is-invalid': submitted && f.t_fijo.errors }">
+        <input class="form-control" formControlName="t_fijo" aria-describedby="t_fijoHelp" type="tel" id="tel t_fijo" placeholder="Ingrese su número de teléfono fijo" [ngClass]="{ 'is-invalid': submitted && f.t_fijo.errors }">
         <small id="passwordHelp" class="form-text text-muted"> ejemplo: 2232-1112</small>
         <div *ngIf="submitted && f.t_fijo.errors" class="invalid-feedback">
           <div *ngIf="f.t_fijo.errors.required">teléfono fijo es un dato requerido</div>
@@ -120,7 +143,7 @@
  
     <div class="form-group">
       <label for="fecha"> Teléfono Móvil</label>
-      <input class="form-control" formControlName="t_movil" aria-describedby="emailHelp" type="tel" id="t_movil" placeholder="Ingrese su numero de teléfono móvil"  [ngClass]="{ 'is-invalid': submitted && f.t_movil.errors }"  >
+      <input class="form-control" formControlName="t_movil" aria-describedby="emailHelp" type="tel" id="t_movil" placeholder="Ingrese su número de teléfono móvil"  [ngClass]="{ 'is-invalid': submitted && f.t_movil.errors }"  >
       <small id="passwordHelp" class="form-text text-muted">ejemplo: 7896-6789</small>
       <div *ngIf="submitted && f.t_movil.errors" class="invalid-feedback">
         <div *ngIf="f.t_movil.errors.required">teléfono móvil  is required</div>
@@ -134,15 +157,15 @@
             <input type="email" formControlName="email" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese su correo electronico"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
             <small id="passwordHelp" class="form-text text-muted">ejemplo: ejemplo@gmail.com</small>
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-              <div *ngIf="f.email.errors.required">Email is required</div>
-              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+              <div *ngIf="f.email.errors.required">El correo electronico es un dato requerido</div>
+              <div *ngIf="f.email.errors.email">la cuenta de email debe ser valida</div>
             </div>
         </div>
 
     <div class="form-group">
-      <label for="usuario"> Ingrese su título de pregrado</label>
-      <input type="text" formControlName="titulo_pre" id="tituloPregrado" class="form-control" aria-describedby="tituloPregradoHelp" placeholder="ejemplo: Licenciatura en Psicología" [ngClass]="{ 'is-invalid': submitted && f.titulo_pre.errors }"  >
-      <small id="tituloPregradoHelp" class="form-text text-muted"></small>
+      <label for="usuario">Título de pregrado</label>
+      <input type="text" formControlName="titulo_pre" id="tituloPregrado" class="form-control" aria-describedby="tituloPregradoHelp" placeholder="Ingrese su título de pregrado " [ngClass]="{ 'is-invalid': submitted && f.titulo_pre.errors }"  >
+      <small id="tituloPregradoHelp" class="form-text text-muted">ejemplo: Licenciatura en Psicología</small>
       <div *ngIf="submitted && f.titulo_pre.errors" class="invalid-feedback">
         <div *ngIf="f.titulo_pre.errors.required">el título de pregrado es requerido</div>
         <div *ngIf="f.titulo_pre.errors.pattern">el título de pregrado debe poseer unicamente letras</div>
@@ -150,8 +173,8 @@
     </div>
 
     <div class="form-group">
-      <label for="usuario"> Ingrese la institución que otorgo el título de pregrado</label>
-      <input type="text" formControlName="institucion" id="institucionOtorgante" class="form-control" aria-describedby="institucionOtorganteHelp" placeholder="" [ngClass]="{ 'is-invalid': submitted && f.institucion.errors }" >
+      <label for="usuario"> Institución que otorgo el título de pregrado</label>
+      <input type="text" formControlName="institucion" id="institucionOtorgante" class="form-control" aria-describedby="institucionOtorganteHelp" placeholder="Ingrese la institución que otorgo el título" [ngClass]="{ 'is-invalid': submitted && f.institucion.errors }" >
       <div *ngIf="submitted && f.institucion.errors" class="invalid-feedback">
         <div *ngIf="f.institucion.errors.required">la institución es un dato requerido</div>
         <div *ngIf="f.institucion.errors.pattern">la institución de pregrado debe poseer unicamente letras</div>
@@ -161,7 +184,7 @@
     
     <div class="form-group">
       <label for="fecha"> Fecha de expedición</label>
-      <input type="date" formControlName="f_expedicion" id="fechaExpedicion" class="form-control" aria-describedby="fechaExpedicionHelp" placeholder="ejemplo: 21/06/2009" [ngClass]="{ 'is-invalid': submitted && f.f_expedicion.errors }" >
+      <input type="date" formControlName="f_expedicion" id="fechaExpedicion" class="form-control" aria-describedby="fechaExpedicionHelp" placeholder="Fecha de expedición del título de pregrado" [ngClass]="{ 'is-invalid': submitted && f.f_expedicion.errors }" >
       <div *ngIf="submitted && f.f_expedicion.errors" class="invalid-feedback">
         <div *ngIf="f.f_expedicion.errors.required">la Fecha de expedición es un dato requerido</div>
       </div>
@@ -170,7 +193,7 @@
     
   <div class="form-group">
     <label for="fecha"> Municipio </label>
-    <input type="text" formControlName="municipio" id="municipio" class="form-control" aria-describedby="municipio" placeholder="" [ngClass]="{ 'is-invalid': submitted && f.municipio.errors }"  >
+    <input type="text" formControlName="municipio" id="municipio" class="form-control" aria-describedby="municipio" placeholder="Ingrese el Municipio donde reside" [ngClass]="{ 'is-invalid': submitted && f.municipio.errors }"  >
     <div *ngIf="submitted && f.municipio.errors" class="invalid-feedback">
       <div *ngIf="f.municipio.errors.required">el municipio es un dato requerido</div>
       <div *ngIf="f.municipio.errors.pattern">el municipio debe poseer unicamente letras</div>
@@ -187,7 +210,7 @@
      
 <div class="form-group">
   <label for="fecha"> Lugar de trabajo </label>
-  <input type="text" formControlName="lugar_trab" id="lugarTrabajo" class="form-control" aria-describedby="lugarTrabajo" placeholder="" [ngClass]="{ 'is-invalid': submitted && f.lugar_trab.errors }">
+  <input type="text" formControlName="lugar_trab" id="lugarTrabajo" class="form-control" aria-describedby="lugarTrabajo" placeholder="Ingrese su Lugar de trabajo" [ngClass]="{ 'is-invalid': submitted && f.lugar_trab.errors }">
   <div *ngIf="submitted && f.lugar_trab.errors" class="invalid-feedback">
     <div *ngIf="f.lugar_trab.errors.required">el lugar de trabajo es un dato requerido</div>
     <div *ngIf="f.lugar_trab.errors.pattern">el lugar de trabajo debe poseer unicamente letras</div>
@@ -197,7 +220,7 @@
 
 <div class="form-group">
   <label for="fecha"> Programa al que aspira </label>
-  <input type="text" formControlName="programa" id="programa" class="form-control" aria-describedby="programa" placeholder="" [ngClass]="{ 'is-invalid': submitted && f.programa.errors }">
+  <input type="text" formControlName="programa" id="programa" class="form-control" aria-describedby="programa" placeholder="Ingrese el Programa al que aspira" [ngClass]="{ 'is-invalid': submitted && f.programa.errors }">
   <div *ngIf="submitted && f.programa.errors" class="invalid-feedback">
     <div *ngIf="f.programa.errors.required">el programa al que aspira es un dato requerido</div>
     <div *ngIf="f.programa.errors.pattern">el programa al que aspira debe poseer unicamente letras</div>
@@ -206,11 +229,20 @@
 </div>
        
 
-         <!-- <button type="submit" class="btn btn-info btn-lg btn-block" (click)="registrarUsuario()" >Registrarme</button> 
-          <button type="submit" class="btn btn-info btn-lg btn-block" [disabled]="registerForm.invalid || loading">Registrarme</button> [disabled]="registerForm.invalid"-->
+        <!--  <button type="submit" class="btn btn-info btn-lg btn-block" (click)="registrarUsuario()" >Registrarme</button> 
+        <button type="submit" class="btn btn-info btn-lg btn-block" [disabled]="registerForm.invalid || loading">Registrarme</button> [disabled]="registerForm.invalid"-->
           <button type="submit"  class="btn btn-info btn-lg btn-block" >Registrarme</button>
         </form>
+    
       </div>
     </div>
-  </div>
+  </div> 
 </div>
+
+
+<!--
+     </div>
+  </div>
+ </section>
+</div>
+-->
