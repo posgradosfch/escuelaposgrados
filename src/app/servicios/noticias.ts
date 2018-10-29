@@ -3,5 +3,7 @@ export class Noticias {
 	encabezado: string;
 	cuerpo: string;
 	fecha: string;
-	//id_usuario: number;
+	imagen: String;
+	imagenUrl: String;
+	id_user: number;
 }

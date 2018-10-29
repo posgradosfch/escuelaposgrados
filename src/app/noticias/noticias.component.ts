@@ -10,14 +10,18 @@ import { Router } from '@angular/router';
 })
 export class NoticiasComponent implements OnInit {
 
-  private noticias:Noticias[];
+ noticias: Noticias[];
 
   constructor(private noticiaServicio:NoticiasService) { }
 
 
   ngOnInit(): void {
   	this.noticiaServicio.getNoticias().subscribe(noticias => {
-  		console.log(noticias);
+      console.log(noticias);
+      
+      Array.isArray(noticias);
+      
+      
   		this.noticias = noticias;
   	},(error)=>{
   		console.log(error);
