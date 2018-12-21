@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ValidarCodigoService } from '../servicios/validar-codigo.service';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -15,16 +16,19 @@ import { HttpClientModule } from '@angular/common/http';
 export class RegistrarUsuarioComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
+  message: String;
 
-  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder) { }
+  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder, private validarCod: ValidarCodigoService) { }
   register;
   ngOnInit() {
+    this.validarCod.currentMessage.subscribe(message => {
+      this.message = message;
+    } );
     this.registerForm = this.formBuilder.group({
-      nombre_aspirante: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
-      apellido_aspirante: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
-      contrasena_aspirante: ['', [Validators.required, Validators.minLength(7)]],
+      nombreAsp: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
+      apellidoAsp: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
+      password: ['', [Validators.required, Validators.minLength(7)]],
       dui: ['', [Validators.required, Validators.pattern('[0-9]{9}')]],
-      // [0-9]{8}-[(0-9)]
       genero: ['', Validators.required],
       fechas_nac: ['', Validators.required],
       t_fijo: ['', [Validators.required,  Validators.pattern('[0-9]{8}')]],
@@ -36,30 +40,11 @@ export class RegistrarUsuarioComponent implements OnInit {
       municipio: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
       lugar_trab: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
       programa: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
-      id_user: '',
-      id_val: ''
+      aceptado: 'False',
+      nombreuser_aspirante: ['', [Validators.required, Validators.pattern('^[ A-Za-záéíóúÁÉÍÓÚñ]+$')]],
+      idVal: this.message,
   });
 
-    this.register = {
-    //   username: '',
-       nombre_aspirante: '',
-       apellido_aspirante: '',
-       contrasena_aspirante: '',
-       dui: '',
-       genero: '',
-       fechas_nac: '',
-       t_fijo: '',
-       t_movil: '',
-       email: '',
-       titulo_pre: '',
-       institucion: '',
-       f_expedicion: '',
-       municipio: '',
-       lugar_trab: '',
-       programa: '',
-       id_user: '',
-       id_val: ''
-    };
   } // fin Oninit
 
 // convenience getter for easy access to form fields
@@ -84,7 +69,8 @@ get f() { return this.registerForm.controls; }
     }
    this.usuarioService.registerUser(this.registerForm.value).subscribe(
      response => {
-       alert('User' + ' ' + this.f.nombre_aspirante + ' ' + 'has been created' );
+       alert('User' + ' ' + this.f.nombreAsp + ' ' + 'has been created' );
+       console.log(response);
        },
      error => console.log('error', error)
    );

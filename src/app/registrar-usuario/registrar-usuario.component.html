@@ -6,87 +6,53 @@
   <div class="col-md-6 mx-auto mt-5">
     <div class="card">
       <div class="card-body">
-
-
-<!--
-<div class="container-fluid">
-    <section class="container">
-		<div class="container-page">				
-			<div class="col-md-6">-->
          <h1 class="text-center"> FORMULARIO DE REGISTRO</h1>
-      
+          Message: {{message}} 
        <form [formGroup]="registerForm" (ngSubmit)="registrarUsuario()">  
- <!--       
-       <div class="form-group">
-          <label for="usuario"> Nombre de usuario</label>
-          <input [(ngModel)]="register.fullname"  type="email" name="text" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese su nombre de usuario" required>
-          <small id="emailHelp" class="form-text text-muted"></small>
-       </div>       
-
-        <div class="form-group">
-          <label for="password"> contraseña</label>
-          <input [(ngModel)]="register.password" type="password" name="password" id="password" class="form-control" aria-describedby="passwordHelp" placeholder="Ingrese su contraseña" required minlength="13">
-          <small id="passwordHelp" class="form-text text-muted">puede combinar caracteres, números y signos</small>
-         </div>
-         
-         <div class="form-group">
-          <label for="email"> Correo electronico</label>
-          <input [(ngModel)]="register.email" type="email" name="email" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese su correo electronico" >
-          <small id="passwordHelp" class="form-text text-muted">ejemplo: ejemplo@gmail.com</small>
-      </div>
-
-      <div class="form-group">
-        <label for="email"> id</label>
-        <input [(ngModel)]="register.group_id" type="number" name="email" id="id" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese su correo electronico" >
-        <small id="passwordHelp" class="form-text text-muted">ejemplo: ejemplo@gmail.com</small>
+  <div class="form-group col-lg-6">
+    <label for="usuario" class="control-label required">Nombre de Usuario </label>
+    <input type="text" formControlName="nombreuser_aspirante" id="nombreuser_aspirante" class="form-control" aria-describedby="apellidosHelp" placeholder="Ingrese su nombre de usuario"  [ngClass]="{ 'is-invalid': submitted && f.nombreuser_aspirante.errors }" >
+    <small id="apellidosHelp" class="form-text text-muted">ejemplo: Pérez</small>
+    <div *ngIf="submitted && f.nombreuser_aspirante.errors" class="invalid-feedback">
+      <div *ngIf="f.nombreuser_aspirante.errors.required">los nombre de usuario son datos requeridos</div>
+      <div *ngIf="f.nombreuser_aspirante.errors.pattern"> los nombre de usuario deben contener solo letras</div>
     </div>
-    
-  -->
+  </div>
 
        <div class="form-group  col-lg-12">
           <div  class="required">
           <label for="usuario" class="control-label required">Nombres</label> </div>
-          <input type="text" formControlName="nombre_aspirante" class="form-control" placeholder="Ingrese sus nombres" [ngClass]="{ 'is-invalid': submitted && f.nombre_aspirante.errors }" required/>
+          <input type="text" formControlName="nombreAsp" class="form-control" placeholder="Ingrese sus nombres" [ngClass]="{ 'is-invalid': submitted && f.nombreAsp.errors }" required/>
         <!--  <input type="text" formControlName="nombre_aspirante" id="nombres" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese sus nombres" [ngClass]="{ 'is-invalid': submitted && f.nombre_aspirante.errors }" > -->
           <small id="nombreHelp" class="form-text text-muted"></small>
-          <div *ngIf="submitted && f.nombre_aspirante.errors" class="invalid-feedback">
-            <div *ngIf="f.nombre_aspirante.errors.required">nombre es un dato requerido</div>
-            <div *ngIf="f.nombre_aspirante.errors.pattern"> el nombre debe contener solo letras</div>
+          <div *ngIf="submitted && f.nombreAsp.errors" class="invalid-feedback">
+            <div *ngIf="f.nombreAsp.errors.required">nombre es un dato requerido</div>
+            <div *ngIf="f.nombreAsp.errors.pattern"> el nombre debe contener solo letras</div>
           </div>
-          <div *ngIf="f.nombre_aspirante.invalid && f.nombre_aspirante.touched" class="invalid-feedback">
+          <div *ngIf="f.nombreAsp.invalid && f.nombreAsp.touched" class="invalid-feedback">
             nombre incorrecto
           </div>
-          <div *ngIf="f.nombre_aspirante.valid " class="valid-feedback">Success! You've done it.</div>
-          <div [hidden]="f.nombre_aspirante.valid || f.nombre_aspirante.pristine" class="alert alert-danger">Su nombre es un dato requerido</div>
+          <div *ngIf="f.nombreAsp.valid " class="valid-feedback">Success! You've done it.</div>
+          <div [hidden]="f.nombreAsp.valid || f.nombreAsp.pristine" class="alert alert-danger">Su nombre es un dato requerido</div>
         </div>
 
         <div class="form-group col-lg-6">
           <label for="usuario" class="control-label required">Apellidos </label>
-          <input type="text" formControlName="apellido_aspirante" id="apellidos" class="form-control" aria-describedby="apellidosHelp" placeholder="Ingrese sus apellidos"  [ngClass]="{ 'is-invalid': submitted && f.apellido_aspirante.errors }" >
+          <input type="text" formControlName="apellidoAsp" id="apellidos" class="form-control" aria-describedby="apellidosHelp" placeholder="Ingrese sus apellidos"  [ngClass]="{ 'is-invalid': submitted && f.apellidoAsp.errors }" >
           <small id="apellidosHelp" class="form-text text-muted">ejemplo: Pérez García</small>
-          <div *ngIf="submitted && f.apellido_aspirante.errors" class="invalid-feedback">
-            <div *ngIf="f.apellido_aspirante.errors.required">los apellidos son datos requeridos</div>
-            <div *ngIf="f.apellido_aspirante.errors.pattern"> los apellidos deben contener solo letras</div>
+          <div *ngIf="submitted && f.apellidoAsp.errors" class="invalid-feedback">
+            <div *ngIf="f.apellidoAsp.errors.required">los apellidos son datos requeridos</div>
+            <div *ngIf="f.apellidoAsp.errors.pattern"> los apellidos deben contener solo letras</div>
           </div>
         </div>   
-<!--prueba
-        <div class="form-group col-lg-6">
-            <label>Password</label>
-            <input type="password" name="" class="form-control" id="" value="">
-          </div>
-          
-          <div class="form-group col-lg-6">
-            <label>Repeat Password</label>
-            <input type="password" name="" class="form-control" id="" value="">
-          </div>-->
 
         <div class="form-group col-lg-6">
             <label for="password">contraseña</label>
-            <input type="password" formControlName="contrasena_aspirante" id="password" class="form-control" aria-describedby="passwordHelp" placeholder="minimo 7 caracteres de longitud" minlength="7" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contrasena_aspirante.errors }" >
+            <input type="password" formControlName="password" id="password" class="form-control" aria-describedby="passwordHelp" placeholder="minimo 7 caracteres de longitud" minlength="7" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
             <small id="passwordHelp" class="form-text text-muted">puede combinar caracteres, números y signos</small>
-            <div *ngIf="submitted && f.contrasena_aspirante.errors" class="invalid-feedback">
-              <div *ngIf="f.contrasena_aspirante.errors.required">la contraseña es un dato requerido</div>
-              <div *ngIf="f.contrasena_aspirante.errors.minlength">la contraseña debe contener al menos 7 caracteres</div>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">la contraseña es un dato requerido</div>
+              <div *ngIf="f.password.errors.minlength">la contraseña debe contener al menos 7 caracteres</div>
           </div>
         </div>
        
@@ -100,15 +66,6 @@
         </div>
         </div>
 
- <!--   <div class="form-group">
-        <label for="genero">Género </label>
-        <input type="text" formControlName="genero" id="genero" class="form-control" aria-describedby="generoHelp" placeholder="Ingrese su género" [ngClass]="{ 'is-invalid': submitted && f.genero.errors }">
-        <small id="passwordHelp" class="form-text text-muted">ejemplo: Femenino</small>
-        <div *ngIf="submitted && f.genero.errors" class="invalid-feedback">
-          <div *ngIf="f.genero.errors.required">genero es un dato requerido</div>
-      </div>
-      </div>
--->
         <div class="form-group col-lg-6">
           <label for="exampleSelect1">Género</label>
           <select class="form-control" id="exampleSelect1" type="text" formControlName="genero" aria-describedby="generoHelp" placeholder="Seleccione su Género" [ngClass]="{ 'is-invalid': submitted && f.genero.errors }">
@@ -200,13 +157,6 @@
     </div>
     <small id="municipioHelp" class="form-text text-muted">ejemplo: Mejicanos</small>
 </div>
-<!--
-<div class="form-group">
-  <label for="fecha"> Municipio </label>
-  <input [(ngModel)]="register.municipio" type="text" name="municipio" id="municipio" class="form-control" aria-describedby="municipio" placeholder="San Salvador" required>
-  <small id="fechaExpedicionHelp" class="form-text text-muted"></small>
-</div>
--->
      
 <div class="form-group">
   <label for="fecha"> Lugar de trabajo </label>

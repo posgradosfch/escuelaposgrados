@@ -11,7 +11,7 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
   registerUser(userData): Observable<any> {
-  return this.http.post('https://postgrados.herokuapp.com/services/aspirante/', userData);
+  return this.http.post('https://posgradosback.herokuapp.com/services/aspirante/v2/', userData);
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl , Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-// import { codigoService } from './Servicios/';
+import { ValidarCodigoService } from '../servicios/validar-codigo.service';
 // import {passValidator} from './custom-validators';
 
 @Component({
@@ -14,39 +14,52 @@ myForm: FormGroup;
 isCodeCorrect = false;
 submitted = false;
 registerForm: FormGroup;
-
-
-constructor(private router: Router, private formBuilder: FormBuilder) {}
+codigoAspirante: String;
+codigoAsp: String;
+constructor(private router: Router, private formBuilder: FormBuilder, private validarCod: ValidarCodigoService) {}
 
 
 ngOnInit() {
   this.myForm = this.formBuilder.group({
-  codigo: ['', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')]]
-  });
-
-  this.registerForm = this.formBuilder.group({
-    codigo: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+  codigo: ['', [Validators.required]]
+  //  Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')
   });
   }
 
  // para facilitar el acceso al resgisterForm
-  get f() { return this.registerForm.controls; }
-  onSubmit() {
-     this.submitted = true;
-     const formValue = this.registerForm.value;
-     console.log(formValue);
+  get f() { return this.myForm.controls; }
 
-     // para aca si el codigo es invalido
-    if (this.registerForm.invalid) {
-       return;
-      }
+ //    alert('código ingresado correctamente');
+ // this.isCodeCorrect = true;
+ 
+   // }
 
-     alert('código ingresado correctamente');
- this.isCodeCorrect = true;
- this.router.navigate(['/registro']);
+    validarCodigo() {
+      console.log('esto esta en el form');
+      console.log(this.myForm.value);
+      this.submitted = true;
+      // stop here if form is invalid
+       if (this.myForm.invalid) {
+           return;
+       }
+      this.validarCod.validarCodigo(this.myForm.value).subscribe(
+        response => {
+          if (response.existe == true) {
+            alert('This' + ' ' + this.f.codigo.value + ' ' + 'it is correct' );
+            this.codigoAspirante = this.f.codigo.value;
+            this.validarCod.changeMessage(response.id);
+          } else {
+             alert('This' + ' ' + this.f.codigo.value + ' ' + 'is not correct');
+          }
+          this.router.navigate(['/registro']);
+          console.log(response.existe);
+          console.log('esto tiene myForm');
+          console.log(this.myForm.value);
+          },
+        error => console.log('error', error)
+      );
+
     }
 
-    validarCodigo () {
-    }
 
 }
