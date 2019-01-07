@@ -7,9 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
+	baseurl = 'https://posgradosback.herokuapp.com/auth/';
   constructor(private http: HttpClient) { }
 
   loginUsuario(userData): Observable<any> {
-  	return this.http.post('https://posgrados.herokuapp.com/services/', userData);
+  	return this.http.post(this.baseurl, userData);
   }
 }

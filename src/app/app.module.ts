@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -6,6 +8,15 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+//servicios globales
+import { LoginService } from './servicios/login.service';
+import { GlobalService } from './servicios/global.service';
+
 
 import { HomeComponent } from './home/home.component';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
@@ -19,8 +30,8 @@ import { PrivatePageComponent } from './private-page/private-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
 import { IngresarCodigoComponent } from './ingresar-codigo/ingresar-codigo.component';
+import { AsistenteComponent } from './asistente/asistente.component';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -30,6 +41,7 @@ const routes: Routes = [
 {path: 'privado', component: PrivatePageComponent},
 {path: 'registro', component: RegistrarUsuarioComponent},
 {path: 'ingresarCodigo', component: IngresarCodigoComponent},
+{path: 'asistente', component: AsistenteComponent},
 {path: '**', component: PageNotFoundComponent}
 
 ];
@@ -48,18 +60,32 @@ const routes: Routes = [
     PrivatePageComponent,
     PageNotFoundComponent,
     RegistrarUsuarioComponent,
-    IngresarCodigoComponent
+    IngresarCodigoComponent,
+    AsistenteComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule.forRoot()
-
+    NgbModule.forRoot(),
+    MatButtonModule, 
+    MatCheckboxModule,
+    MatStepperModule,
+    MatFormFieldModule
   ],
-  providers: [],
+  exports: [
+    MatButtonModule, 
+    MatCheckboxModule,
+    MatStepperModule,
+    MatFormFieldModule
+  ],
+  providers: [
+    LoginService,
+    GlobalService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

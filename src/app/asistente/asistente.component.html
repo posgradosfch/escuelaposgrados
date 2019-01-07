@@ -1,0 +1,18 @@
+<br>
+<h1 style="text-align: center;"><strong>Asistente para el Ingreso a la Escuela de Posgrados</strong></h1>
+<br>
+<mat-vertical-stepper linear #stepper *ngFor="let paso of pasos">
+  <mat-step [stepControl]="firstFormGroup">
+  	<ng-template matStepLabel >Done</ng-template>
+  </mat-step>
+  <mat-step>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
