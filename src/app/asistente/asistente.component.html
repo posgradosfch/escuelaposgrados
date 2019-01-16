@@ -1,18 +1,44 @@
 <br>
 <h1 style="text-align: center;"><strong>Asistente para el Ingreso a la Escuela de Posgrados</strong></h1>
 <br>
-<mat-vertical-stepper linear #stepper *ngFor="let paso of pasos">
-  <mat-step [stepControl]="firstFormGroup">
-  	<ng-template matStepLabel >Done</ng-template>
-  </mat-step>
-  <mat-step>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
+<div class="col-md-11 mx-auto mt-12">
+  <mat-vertical-stepper linear #stepper>
+    <mat-step [stepControl]="formGroup1" *ngFor="let paso of paso; let i = index">
+    	<ng-template matStepLabel >{{paso.nombre}}</ng-template>
+      <p>{{paso.descripcion}}</p>
+      <div>
+        <button mat-button matStepperNext class="btn btn-info">Siguiente</button>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="formGroup" *ngFor="let paso of pasos; let i = index">
+      <ng-template matStepLabel >{{paso.nombre}}</ng-template>
+      <p>{{paso.descripcion}}</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+    </mat-step>
+  </mat-vertical-stepper>
+</div>
+
+<mat-vertical-stepper>
+  <ng-template matStepperIcon="edit">
+    <mat-icon>insert_drive_file</mat-icon>
+  </ng-template>
+
+  <ng-template matStepperIcon="done">
+    <mat-icon>done_all</mat-icon>
+  </ng-template>
+
+  <!-- Custom icon with a context variable. -->
+  <ng-template matStepperIcon="number" let-index="index">
+    {{index + 10}}
+  </ng-template>
+
+  <!-- Stepper steps go here -->
 </mat-vertical-stepper>

@@ -10,26 +10,37 @@ import { Paso } from '../modelos/paso';
 })
 export class AsistenteComponent implements OnInit {
 
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  formGroup1: FormGroup;
+  formGroup: FormGroup;
   pasos: Paso[];
+  paso: Paso[];
   constructor(private _formBuilder: FormBuilder, private asistenteService: AsistenteService) { }
 
   ngOnInit(): void {
   	
-  	this.firstFormGroup = this._formBuilder.group({
+  	/*this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ''
-    });
+    });*/
 
     this.getPasos();
+    this.getPrimerPaso();
 
   }
 
+  getPrimerPaso(){
+    this.asistenteService.getPrimerPaso().subscribe(paso =>{
+      this.paso = paso;
+      console.log('paso', paso);
+    }, error =>{
+      console.log('error', error);
+    })
+  }
+
   getPasos(){
-    this.asistenteService.getPasos().subscribe(pasos =>{
+    this.asistenteService.getPasosMayor().subscribe(pasos =>{
       this.pasos = pasos;
       console.log('pasos', pasos);
     }, error =>{

@@ -1,10 +1,11 @@
-<div class="row">
-  <div class="col-md-6 mx-auto mt-5 mb-5">
-    <div class="card">
-      <div class="card-body" style="padding: 2rem, 2rem, 2rem;">
-        <h1 class="text-center"><strong>INICIO DE SESION</strong></h1>
-        <app-login></app-login>
-      </div>
-    </div>
-  </div>
-</div>
+<app-header></app-header>
+<app-navbar></app-navbar>
+<!--ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+    <ng-template ngbSlide *ngFor="let image of images">
+      	<img [src]="image" alt="Escuela de POSGRADOS" class="img">
+      	<div class="carousel-caption login">
+		  	<app-login></app-login>
+		</div>
+    </ng-template>
+  </ngb-carousel-->
+<app-login></app-login>

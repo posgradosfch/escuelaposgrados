@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -12,6 +15,25 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { MatIconModule} from '@angular/material/icon';
+import { MatDialogModule} from '@angular/material/dialog';
+import { MatInputModule} from '@angular/material/input';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatMenuModule} from '@angular/material/menu';
+import { MatSelectModule} from '@angular/material/select';
+import { MatPaginatorModule, MatProgressSpinnerModule, MatSortModule, MatTableModule } from "@angular/material"
+//import { AppRoutingModule } from './app-routing.module';
+import { MatTooltipModule} from '@angular/material/tooltip';
+//import { AngularSvgIconModule } from 'angular-svg-icon';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatBadgeModule } from '@angular/material/badge'
+import { MatExpansionModule} from '@angular/material/expansion';
+import { MatListModule} from '@angular/material/list';
+//import { NgxPaginationModule } from 'ngx-pagination';
+//import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from "angular5-social-login";
+import {MatChipsModule} from '@angular/material/chips';
 
 //servicios globales
 import { LoginService } from './servicios/login.service';
@@ -32,6 +54,9 @@ import { RegistrarUsuarioComponent } from './registrar-usuario/registrar-usuario
 
 import { IngresarCodigoComponent } from './ingresar-codigo/ingresar-codigo.component';
 import { AsistenteComponent } from './asistente/asistente.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { NavSettingsComponent } from './nav-settings/nav-settings.component';
+import { AgendaComponent } from './agenda/agenda.component';
 
 const routes: Routes = [
 {path: 'home', component: HomeComponent},
@@ -42,6 +67,7 @@ const routes: Routes = [
 {path: 'registro', component: RegistrarUsuarioComponent},
 {path: 'ingresarCodigo', component: IngresarCodigoComponent},
 {path: 'asistente', component: AsistenteComponent},
+{path: 'agenda', component: AgendaComponent},
 {path: '**', component: PageNotFoundComponent}
 
 ];
@@ -61,7 +87,10 @@ const routes: Routes = [
     PageNotFoundComponent,
     RegistrarUsuarioComponent,
     IngresarCodigoComponent,
-    AsistenteComponent
+    AsistenteComponent,
+    NavMenuComponent,
+    NavSettingsComponent,
+    AgendaComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +103,28 @@ const routes: Routes = [
     MatButtonModule, 
     MatCheckboxModule,
     MatStepperModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatPaginatorModule, 
+    MatProgressSpinnerModule, 
+    MatSortModule, 
+    MatTableModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatDatepickerModule,
+    MatBadgeModule,
+    MatExpansionModule,
+    MatListModule,
+    MatDialogModule,
+    MatChipsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   exports: [
     MatButtonModule, 
