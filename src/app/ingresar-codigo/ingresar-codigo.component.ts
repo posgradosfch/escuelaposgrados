@@ -40,9 +40,10 @@ ngOnInit() {
       this.submitted = true;
       // stop here if form is invalid
        if (this.myForm.invalid) {
+           console.log('form invalido');
            return;
        }
-      this.validarCod.validarCodigo(this.myForm.value).subscribe(
+      this.validarCod.validarCodigoAspirante(this.myForm.value).subscribe(
         response => {
           if (response.existe == true) {
             alert('This' + ' ' + this.f.codigo.value + ' ' + 'it is correct' );
@@ -52,6 +53,7 @@ ngOnInit() {
              alert('This' + ' ' + this.f.codigo.value + ' ' + 'is not correct');
           }
           this.router.navigate(['/registro']);
+          console.log('esto responde el microservicio');
           console.log(response.existe);
           console.log('esto tiene myForm');
           console.log(this.myForm.value);
