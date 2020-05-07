@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class CodigoService {
-  baseUrl: string = environment.apiUrl + "services/codigo/";
+  baseUrl: string = environment.apiUrl + 'services/codigo/';
   constructor(private http: HttpClient) { }
   codigo(userData): Observable<any> {
     return this.http.post(this.baseUrl, userData);

@@ -31,7 +31,7 @@ ngOnInit() {
 
  //    alert('código ingresado correctamente');
  // this.isCodeCorrect = true;
- 
+
    // }
 
     validarCodigo() {
